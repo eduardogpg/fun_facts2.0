@@ -5,6 +5,22 @@
 </head>
 <body>
   <h1>sign_in</h1>
+  
+  {% if messages %}
+    <div class="center-align">
+      <ul class="messages">
+        {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+  
+  <form method="post" action="">
+    {% csrf_token %}
+    {% include "common/forms.html" with form=form only %}
+    <input class="btn #9e9e9e grey" type="submit" value="ingreso">
+  </form>
 
 </body>
 </html>
